@@ -1,0 +1,33 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Typ av rätt"
+      }
+    },
+    "preamble" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "Preamble",
+        "placeholder" : "Kort beskrivning av rätten"
+      }
+    },
+    "preview" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Preview"
+      }
+    }
+  }
+}

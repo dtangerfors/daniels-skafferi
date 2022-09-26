@@ -1,0 +1,34 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Namn på kategori"
+      }
+    },
+    "preamble": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Preamble",
+        "placeholder": "En kort beskrivning av kategorin"
+      }
+    },
+    "preview": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Preview"
+      }
+    }
+  }
+}
