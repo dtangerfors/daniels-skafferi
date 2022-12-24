@@ -11,14 +11,15 @@ import HeroImage from '../../components/recipe_page/HeroImage'
 import { Content, Section } from '../../components/recipe_page/layout'
 import { Seo } from '../../components/Seo'
 import Step from '../../components/recipe_page/Step'
-import BackButton from '../../components/BackButton'
 import { Layout } from '../../components/Layout'
 import { H1, Ingress } from '../../components/typography'
 import MetaField from '../../components/recipe_page/MetaField'
 import {Text} from '../../components/page/slices'
 
+import bgBorder from "../../images/white-border-deco.svg";
+
 const DashedLine = () => (
-  <div className="absolute z-10 h-full border-r-2 border-dotted border-tertiary border-opacity-30 top-0 left-10"></div>
+  <div className="absolute z-10 h-full border-r-2 border-dotted border-tertiary border-opacity-30 top-0 left-4 lg:left-10"></div>
 )
 
 export const query = graphql`
@@ -27,7 +28,8 @@ query SingleRecipe($id: String) {
     first_publication_date
     data {
       title {
-        richText
+        richText 
+        text
       }
       preview {
         alt
@@ -40,7 +42,7 @@ query SingleRecipe($id: String) {
           slice_type
           primary {
             recipe_group {
-              richText
+              richText 
             }
           }
           items {
@@ -133,21 +135,27 @@ const RecipePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="Title" />
+      <Seo title={title.text} />
 
       <div className="relative">
-        <header className="relative bg-gradient-secondary-white pt-20 after:w-full after:h-4 after:absolute after:bg-wave after:bg-auto after:top-1/2 after:-translate-y-1/2">
+        <header className="relative bg-secondary py-20 after:w-full after:h-4 after:absolute after:bg-wave after:bg-auto after:top-1/2 after:-translate-y-1/2" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
           <Section>
-            <BackButton />
             <Content>
-              <div className="pb-12 max-w-screen-md mx-auto">
+              <div className="pb-0 lg:pb-12 max-w-screen-md mx-auto">
                 <H1><PrismicText field={title.richText} /></H1>
                 <MetaField publishDate={first_publication_date} category={category_group} course={course_group}/>
               </div>
-            <HeroImage image={preview} key="heroImage" />
-            </Content>
+              </Content>
           </Section>
         </header>
+        <Section>
+          <Content>
+            <div className="-mt-28">
+              <HeroImage image={preview} key="heroImage" />
+            </div>
+          </Content>
+        </Section>
+           
         <main>
           <Section>
             <Content>
@@ -160,8 +168,8 @@ const RecipePage = ({ data }) => {
           <Section>
             <Content>
             <div className="lg:flex border-t-2 border-dotted border-tertiary border-opacity-30 pt-12">
-              <section id="recipe-steps" className="px-5.5 flex-1">
-                <h2 className="font-serif font-bold text-xl text-primary">
+              <section id="recipe-steps" className="lg:px-5.5 flex-1">
+                <h2 className="font-serif font-normal text-xl text-primary">
                   Ingredienser
                 </h2>
 
@@ -171,7 +179,7 @@ const RecipePage = ({ data }) => {
                       ingredients={recipeGroup}
                       key={`innerContent-ingredients-${index}`}
                     >
-                      <h3 className="font-serif font-bold text-lg text-primary">
+                      <h3 className="font-serif font-normal text-lg text-primary">
                         <PrismicText field={recipeGroup.primary.recipe_group.richText} />
                       </h3>
                       <ItemList>
@@ -179,9 +187,9 @@ const RecipePage = ({ data }) => {
                           return (
                             <Item
                               key={`ingredientItem-${index}`}
-                              item={item.item.richText[0].text}
-                              quantity={item.quantity.richText[0].text}
-                              measurement={item.measurement.richText[0].text}
+                              item={item.item}
+                              quantity={item.quantity}
+                              measurement={item.measurement}
                             />
                           )
                         })}
@@ -192,9 +200,9 @@ const RecipePage = ({ data }) => {
               </section>
               <section
                 id="recipe-how-to"
-                className="relative px-5.5 pl-18 flex-1"
+                className="relative pl-12 lg:px-5.5 lg:pl-18 flex-1"
               >
-                <h2 className="font-serif font-bold text-xl text-primary">
+                <h2 className="font-serif font-normal text-xl text-primary">
                   Gör så här
                 </h2>
 
