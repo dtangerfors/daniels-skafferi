@@ -1,9 +1,10 @@
 import React from "react";
-import { PrismicText } from '@prismicio/react'
+import { PrismicRichText } from '@prismicio/react'
+import htmlSerializer from "../../utils/htmlSerializer";
 
 const Text = ({slice}) => {
    return (
-      slice.items.map(item => <PrismicText field={item.text.richText} />)
+      slice.items.map(item => <PrismicRichText field={item.text.richText} components={htmlSerializer} />)
    )
 }
 
