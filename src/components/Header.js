@@ -26,18 +26,12 @@ export const Header = () => {
     <header className="sticky z-50 top-0 w-full h-12 bg-white border-neutral-200 border-b px-6 md:h-16">
       <div className="flex max-w-screen-lg mx-auto">
         <Link to="/" className="-ml-2">
-          <img src={logo} className="w-[3.72rem] md:w-20" />
+          <img src={logo} alt="Daniels Skafferi" className="w-[3.72rem] md:w-20" />
         </Link>
         <nav className="ml-8 hidden lg:block">
           <ul className="flex">
             <NavPill to="/recept" icon="ri-book-3-line">
               Recept
-            </NavPill>
-            <NavPill to="/info" icon="ri-bookmark-line">
-              Sparade
-            </NavPill>
-            <NavPill to="/profil" icon="ri-user-line">
-              Profil
             </NavPill>
           </ul>
         </nav>
