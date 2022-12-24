@@ -20,26 +20,39 @@ function MenuLink({ to, children }) {
 
 const MegaMenu = ({ open }) => {
   const data = useStaticQuery(graphql`
-    {
-      allPrismicCourse {
-        edges {
-          node {
-            url
-            data {
-              title {
-                raw
-              }
+  {
+    allPrismicCourse {
+      edges {
+        node {
+          url
+          data {
+            title {
+              raw
+            }
+          }
+          id
+        }
+      }
+    }
+    allPrismicCategory {
+      edges {
+        node {
+          url
+          id
+          data {
+            title {
+              raw
             }
           }
         }
       }
     }
+  }  
   `)
 
   const allCourseLinks = data.allPrismicCourse.edges;
+  const allCategoryLinks = data.allPrismicCategory.edges;
 
-  const openMenu = ``
-  const closedMenu = ``
   return (
     <motion.div
       initial={{
@@ -57,15 +70,23 @@ const MegaMenu = ({ open }) => {
     >
       <div className="max-w-screen-lg mx-auto py-6" key="menu-container">
         <ul className="flex flex-wrap gap-4" key="menu-list">
-        <li className="flex-1" key="menu-item-1">
+        <li className="w-full" key="menu-item-category">
+            <p className="font-serif text-lg text-primary border-b-2 border-dotted border-neutral-300 pb-2 mb-4">
+              Kategori
+            </p>
+            <ul>
+              {allCategoryLinks.map((CategoryLink, i) => (<MenuLink key={CategoryLink.node.id} to={CategoryLink.node.url}><PrismicText field={CategoryLink.node.data.title.raw} /></MenuLink>))}
+            </ul>
+          </li>
+        <li className="flex-1" key="menu-item-course">
             <p className="font-serif text-lg text-primary border-b-2 border-dotted border-neutral-300 pb-2 mb-4">
               Typ av rätt
             </p>
             <ul>
-              {allCourseLinks.map((CourseLink, i) => (<MenuLink key={`menu-item-1-${i}`} to={CourseLink.node.url}><PrismicText field={CourseLink.node.data.title.raw} /></MenuLink>))}
+              {allCourseLinks.map((CourseLink, i) => (<MenuLink key={CourseLink.node.id} to={CourseLink.node.url}><PrismicText field={CourseLink.node.data.title.raw} /></MenuLink>))}
             </ul>
           </li>
-          <li className="flex-1" key="menu-item-2">
+          <li className="flex-1" key="menu-item-info">
             <p className="font-serif text-lg text-primary border-b-2 border-dotted border-neutral-300 pb-2 mb-4">
               Om
             </p>
