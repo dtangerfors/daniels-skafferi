@@ -1,170 +1,190 @@
 {
-  "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "uid",
-        "placeholder" : "ID"
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "ID"
       }
     },
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Title",
-        "placeholder" : "Namn på receptet"
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Namn på receptet"
       }
     },
-    "description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph",
-        "label" : "Beskrivning",
-        "placeholder" : "Kort beskrivning av receptet"
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Beskrivning",
+        "placeholder": "Kort beskrivning av receptet"
       }
     },
-    "preview" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ {
-          "name" : "thumbnail",
-          "width" : 400,
-          "height" : 400
-        } ],
-        "label" : "Preview"
+    "preview": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [
+          {
+            "name": "thumbnail",
+            "width": 400,
+            "height": 400
+          }
+        ],
+        "label": "Preview"
       }
     },
-    "category_group" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "category" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "category" ],
-              "label" : "Kategori"
+    "category_group": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "category": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "category"
+              ],
+              "label": "Kategori"
             }
           }
         },
-        "label" : "Kategorier"
+        "label": "Kategorier"
       }
     },
-    "course_group" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "course" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "course" ],
-              "label" : "Måltid",
-              "placeholder" : "Typ av rätt"
+    "course_group": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "course": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "course"
+              ],
+              "label": "Måltid",
+              "placeholder": "Typ av rätt"
             }
           }
         },
-        "label" : "Typ av rätt"
+        "label": "Typ av rätt"
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : null,
-        "choices" : {
-          "ingredients" : {
-            "type" : "Slice",
-            "fieldset" : "Ingredients",
-            "description" : "Ingredients",
-            "icon" : "local_dining",
-            "display" : "list",
-            "non-repeat" : {
-              "recipe_group" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label" : "recipe_group",
-                  "placeholder" : "Recipe Group"
+    "total_servings": {
+      "type": "Number",
+      "config": {
+        "label": "total_servings",
+        "placeholder": "Portioner"
+      }
+    },
+    "time": {
+      "type": "Number",
+      "config": {
+        "label": "time",
+        "placeholder": "Tidsåtgång"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "ingredients": {
+            "type": "Slice",
+            "fieldset": "Ingredients",
+            "description": "Ingredients",
+            "icon": "local_dining",
+            "display": "list",
+            "non-repeat": {
+              "recipe_group": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "recipe_group",
+                  "placeholder": "Recipe Group"
                 }
               }
             },
-            "repeat" : {
-              "item" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label" : "Item",
-                  "placeholder" : "Item"
+            "repeat": {
+              "item": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Item",
+                  "placeholder": "Item"
                 }
               },
-              "measurement" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label" : "Measurement",
-                  "placeholder" : "Measurement"
+              "measurement": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Measurement",
+                  "placeholder": "Measurement"
                 }
               },
-              "quantity" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label" : "Quantity",
-                  "placeholder" : "Quantity"
+              "quantity": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Quantity",
+                  "placeholder": "Quantity"
                 }
               }
             }
           },
-          "how_to" : {
-            "type" : "Slice",
-            "fieldset" : "How to",
-            "description" : "How to",
-            "icon" : "assignment",
-            "display" : "list",
-            "non-repeat" : {
-              "recipe_group" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label" : "recipe_group",
-                  "placeholder" : "Recipe Group"
+          "how_to": {
+            "type": "Slice",
+            "fieldset": "How to",
+            "description": "How to",
+            "icon": "assignment",
+            "display": "list",
+            "non-repeat": {
+              "recipe_group": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "recipe_group",
+                  "placeholder": "Recipe Group"
                 }
               }
             },
-            "repeat" : {
-              "step" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                  "label" : "Step",
-                  "placeholder" : "Step"
+            "repeat": {
+              "step": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Step",
+                  "placeholder": "Step"
                 }
               }
             }
           },
-          "blog_post" : {
-            "type" : "Slice",
-            "fieldset" : "Blog post",
-            "description" : "Blog post",
-            "icon" : "message",
-            "display" : "list",
-            "non-repeat" : { },
-            "repeat" : {
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "Image"
+          "blog_post": {
+            "type": "Slice",
+            "fieldset": "Blog post",
+            "description": "Blog post",
+            "icon": "message",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
                 }
               },
-              "text" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                  "label" : "Text"
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Text"
                 }
               }
             }

@@ -7,7 +7,7 @@ const ItemList = ({children}) => (
 const Item = ({ item, quantity, measurement }) => (
   <li className="flex py-3 mt-4 first:mt-0 border-b border-dotted border-black border-opacity-20 justify-between text-base text-neutral-700">
     <span className="font-bold">{item.richText[0].text}</span>
-    {quantity && <span>{quantity.richText[0].text} {measurement.richText[0].text}</span>}
+    {quantity.richText?.length ?  <span>{quantity.richText[0].text} {measurement.richText[0].text}</span> : null}
   </li>
 )
 

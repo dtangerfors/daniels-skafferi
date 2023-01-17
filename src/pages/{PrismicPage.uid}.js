@@ -6,7 +6,7 @@ import { Seo } from '../components/Seo'
 import Hero from '../components/homepage/Hero'
 import { H1 } from '../components/typography'
 import { Content, Section } from '../components/recipe_page/layout'
-import {Text} from '../components/page/slices'
+import {Text, Image} from '../components/page/slices'
 
 export const query = graphql`
 query SinglePage($id: String) {
@@ -15,20 +15,26 @@ query SinglePage($id: String) {
     url
     data {
       page_title {
+        text
         richText
       }
       meta_image {
         url
       }
       meta_description {
-        richText
+        text
       }
       body {
         ... on PrismicPageDataBodyImage {
           id
           items {
             image {
-              gatsbyImageData
+              alt
+              gatsbyImageData(
+                width: 1500
+                placeholder: BLURRED
+                imgixParams: { q: 80 }
+              )
             }
           }
           slice_type
@@ -54,10 +60,10 @@ const SliceItems = ({ slices }) => {
     const res = (() => {
       switch (slice.slice_type) {
         case "text":
-          return <Text slice={slice} key={index} />
+          return <Text slice={slice} key={`text-${index}`} />
 
-        // case "image":
-        //   return <Image slice={slice} key={index} />
+        case "image":
+          return <Image slice={slice} key={`image-${index}`} />
 
         default:
           return
@@ -76,8 +82,8 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={page_title.richText.text} description={meta_description} />
-      <Hero>
+      <Seo title={page_title.text} description={meta_description.text} />
+      <Hero hasBorder>
         <div className="flex items-center justify-center w-full h-full">
           <H1><PrismicText field={page_title.richText}/></H1>
         </div>

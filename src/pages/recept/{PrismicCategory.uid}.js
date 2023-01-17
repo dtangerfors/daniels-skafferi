@@ -4,6 +4,7 @@ import { PrismicText } from '@prismicio/react'
 import { Layout } from '../../components/Layout'
 import RecipeCard from '../../components/cards/RecipeCard'
 import { Content } from '../../components/sections'
+import bgBorder from "../../images/white-border-deco.svg";
 
 export const query = graphql`
   query CategoryPage($id: String, $uid: String) {
@@ -61,7 +62,7 @@ const CategoryPage = ({ data }) => {
   return (
     <Layout>
       <header className="relative z-1">
-        <div className="flex flex-col items-center justify-center bg-black bg-opacity-50 py-32 px-5.5">
+        <div className="flex flex-col items-center justify-center bg-black bg-opacity-50 py-32 px-5.5" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
           <h1 className="font-serif font-light text-2xl lg:text-4xl text-white mb-5">
             <PrismicText field={category.data.title.richText} />
           </h1>

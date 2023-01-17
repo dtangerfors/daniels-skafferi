@@ -138,7 +138,7 @@ const RecipePage = ({ data }) => {
       <Seo title={title.text} />
 
       <div className="relative">
-        <header className="relative bg-secondary py-20 after:w-full after:h-4 after:absolute after:bg-wave after:bg-auto after:top-1/2 after:-translate-y-1/2" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
+        <header className="relative bg-secondary py-20" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
           <Section>
             <Content>
               <div className="pb-0 lg:pb-12 max-w-screen-md mx-auto">

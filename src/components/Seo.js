@@ -14,9 +14,7 @@ export const Seo = ({ description, title }) => {
     }
   `)
 
-  const metaTitle = title
-    ? `${title} | ${queryData.site?.siteMetadata?.title}`
-    : queryData.site?.siteMetadata?.title
+  const metaTitle = title ? `${title} – ${queryData.site?.siteMetadata?.title}` : queryData.site?.siteMetadata?.title
   const metaDescription =
     description || queryData.site?.siteMetadata?.description
 

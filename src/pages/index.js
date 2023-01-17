@@ -59,13 +59,13 @@ const Homepage = ({ data }) => {
       <Seo title="Hem" />
       <div>
         <section>
-          <Hero>
+          <header className="flex items-end bg-secondary px-5.5 h-40">
             <Content>
               <h2 className="font-serif font-light text-lg leading-none text-primary">
                 Senast tillagda recept
               </h2>
             </Content>
-          </Hero>
+          </header>
           <div className="bg-gradient-secondary-white px-5.5 overflow-hidden">
             <Content>
               <Carousel recipes={recipes} />

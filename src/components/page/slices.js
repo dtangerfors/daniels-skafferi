@@ -1,3 +1,4 @@
 import Text from "./Text";
+import Image from "./Image";
 
-export {Text}
+export {Text, Image}
