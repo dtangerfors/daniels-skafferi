@@ -34,7 +34,7 @@ module.exports = {
         5000: '5000ms',
       },
       fontFamily: {
-        sansSerif: ['Cabinet Grotesk', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
         serif: ['Gambarino', 'serif']
 
       },

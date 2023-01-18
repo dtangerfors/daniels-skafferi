@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { PrismicText } from '@prismicio/react'
+import { BookStack, Calendar, Clutery } from 'iconoir-react'
 
 const MetaField = ({ category, course, publishDate }) => {
    const categoryID = category[0].category.uid;
@@ -43,18 +44,19 @@ const MetaField = ({ category, course, publishDate }) => {
 
   return (
     <ul className="flex mt-4">
-      {publishDate && <li className="text-base text-sans flex items-center mr-4">
-        <i className="ri-calendar-line text-primary mr-2 leading-none"></i>{' '}
+      {publishDate && <li className="text-sm text-sans leading-none flex items-center mr-4">
+      <span className="text-primary mr-1"><Calendar/></span>
         {publishedAt}
       </li>}
-      {category && <li className="text-base text-sans flex items-center mr-4">
-        <i className="ri-book-3-line text-primary mr-2 leading-none"></i>{' '}
+      {category && <li className="text-sm text-sans leading-none flex items-center mr-4">
+        <span className="text-primary mr-1"><BookStack/></span>
+        
         <Link to={metaCategory.url}>
           <PrismicText field={metaCategory.data.title.richText} />
         </Link>
       </li>}
-      {course && <li className="text-base text-sans flex items-center mr-4">
-        <i className="ri-book-3-line text-primary mr-2 leading-none"></i>{' '}
+      {course && <li className="text-sm text-sans leading-none flex items-center mr-4">
+      <span className="text-primary mr-1"><Clutery/></span>
          <Link to={metaCourse.url}>
          <PrismicText field={metaCourse.data.title.richText} />
          </Link>

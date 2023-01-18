@@ -25,11 +25,11 @@ const H4 = ({ children }) => (
 )
 
 const Paragraph = ({children}) => (
-  <p className="font-sans font-normal text-base text-gray-700 pb-[1em] last:pb-0">{children}</p>
+  <p className="font-sans font-normal text-base leading-loose text-gray-700 pb-[1em] last:pb-0">{children}</p>
 )
 
 const Ingress = ({children}) => (
-  <p className="font-sans font-normal text-lg leading-normal text-gray-700 pb-[1em]">{children}</p>
+  <p className="font-sans font-normal text-lg leading-relaxed text-gray-700 pb-[1em]">{children}</p>
 )
 
 const Ul = ({children}) => (
