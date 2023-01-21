@@ -46,6 +46,8 @@ export const query = graphql`
               alt
               url
             }
+            total_servings
+            time
           }
           url
         }
@@ -83,7 +85,7 @@ const CoursePage = ({ data }) => {
         <p className="font-serif text-lg lg:text-xl text-primary">
           Visar {recipes.length} recept
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 mt-5 lg:gap-5.5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 mt-5 lg:gap-5.5">
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.node.id} recipe={recipe.node} />
           ))}

@@ -38,9 +38,11 @@ const MetaField = ({ category, course, publishDate }) => {
     }
   `)
 
-  const publishedAt = new Date(publishDate).toLocaleDateString() || "Datum saknas";
-  const metaCategory = data.allPrismicCategory.edges.filter(uid => uid.node.uid === categoryID)[0].node || "Okategoriserad";
-  const metaCourse = data.allPrismicCourse.edges.filter(uid => uid.node.uid === courseID)[0].node || "Ingen vald";
+  let publishedAt, metaCategory, metaCourse;
+
+  if (publishDate) publishedAt = new Date(publishDate).toLocaleDateString() || "Datum saknas";
+  if (categoryID) metaCategory = data.allPrismicCategory.edges.filter(uid => uid.node.uid === categoryID)[0].node || "Okategoriserad";
+  if (courseID) metaCourse = data.allPrismicCourse.edges.filter(uid => uid.node.uid === courseID)[0].node || "Ingen vald";
 
   return (
     <ul className="flex mt-4">
@@ -48,14 +50,14 @@ const MetaField = ({ category, course, publishDate }) => {
       <span className="text-primary mr-1"><Calendar/></span>
         {publishedAt}
       </li>}
-      {category && <li className="text-sm text-sans leading-none flex items-center mr-4">
+      {categoryID && <li className="text-sm text-sans leading-none flex items-center mr-4">
         <span className="text-primary mr-1"><BookStack/></span>
         
         <Link to={metaCategory.url}>
           <PrismicText field={metaCategory.data.title.richText} />
         </Link>
       </li>}
-      {course && <li className="text-sm text-sans leading-none flex items-center mr-4">
+      {courseID && <li className="text-sm text-sans leading-none flex items-center mr-4">
       <span className="text-primary mr-1"><Clutery/></span>
          <Link to={metaCourse.url}>
          <PrismicText field={metaCourse.data.title.richText} />

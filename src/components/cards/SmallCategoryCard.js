@@ -10,7 +10,7 @@ export default function SmallCategoryCard({category}) {
             <div className="absolute inset-0 w-full h-full bg-black opacity-40 group-hover:opacity-70 transition-all duration-300 ease-in-out"></div>
          </figure>
          <div className="flex items-center justify-center p-4 z-2">
-            <p className="text-base lg:text-lg font-serif font-light text-white"><PrismicText field={category.data.title.raw} /></p>
+            <p className="text-base lg:text-lg font-serif font-light text-white"><PrismicText field={category.data.title.RichText} /></p>
          </div>
       </Link>
    )

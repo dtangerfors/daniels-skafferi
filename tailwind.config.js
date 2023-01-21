@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     fontSize: {
+      xs: ['0.8rem', '1.6em'],
       sm: ['0.9rem', '1.6em'],
       base: ['1rem', '1.6em'],
       lg: ['1.333rem', '1.2em'],
@@ -16,8 +17,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        secondary: '#F0F0EC',
         primary: '#436F68',
+        secondary: '#F0F0EC',
         tertiary: '#aeb88a',
       },
       spacing: {

@@ -46,6 +46,8 @@ export const query = graphql`
               alt
               url
             }
+            total_servings
+            time
           }
           url
         }

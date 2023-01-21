@@ -14,6 +14,7 @@ import { Layout } from "../../components/Layout";
 import { H1, Ingress } from "../../components/typography";
 import MetaField from "../../components/recipe_page/MetaField";
 import { Text } from "../../components/page/slices";
+import CookingInfo from "../../components/CookingInfo";
 
 import bgBorder from "../../images/white-border-deco.svg";
 
@@ -35,6 +36,8 @@ export const query = graphql`
           copyright
           url
         }
+        total_servings
+        time
         body {
           ... on PrismicRecipeDataBodyIngredients {
             id
@@ -182,19 +185,19 @@ const RecipePage = ({ data }) => {
           </Section>
           <Section>
             <Content>
-              <div className="lg:flex border-t-2 border-dotted border-tertiary border-opacity-30 pt-12">
-                <section id="recipe-steps" className="lg:px-5.5 flex-1">
-                  <h2 className="font-serif font-normal text-xl text-primary">
+              <div className="lg:grid grid-cols-12 gap-10 border-t-2 border-dotted border-tertiary border-opacity-30 pt-12">
+                <section id="recipe-steps" className="lg:pr-5.5 col-span-4">
+                  <h2 className="font-serif font-normal text-xl text-primary mb-2">
                     Ingredienser
                   </h2>
-
+                  <CookingInfo time={recipe.data.time} servings={recipe.data.total_servings}/>
                   {recipeIngredients.map((recipeGroup, index) => {
                     return (
                       <RecipeGroup
                         ingredients={recipeGroup}
                         key={`innerContent-ingredients-${index}`}
                       >
-                        <h3 className="font-serif font-normal text-lg text-primary">
+                        <h3 className="font-serif font-normal text-lg text-primary pb-3 pt-6">
                           <PrismicText
                             field={recipeGroup.primary.recipe_group.richText}
                           />
@@ -217,7 +220,7 @@ const RecipePage = ({ data }) => {
                 </section>
                 <section
                   id="recipe-how-to"
-                  className="relative pl-12 lg:px-5.5 lg:pl-18 flex-1"
+                  className="relative pl-12 lg:px-5.5 lg:pl-18 col-span-8"
                 >
                   <h2 className="font-serif font-normal text-xl text-primary">
                     Gör så här

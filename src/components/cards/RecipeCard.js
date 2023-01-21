@@ -1,6 +1,7 @@
 import React from 'react'
 import { PrismicText } from '@prismicio/react'
 import { Link } from 'gatsby'
+import CookingInfo from '../CookingInfo'
 import missing_image from '../../images/missing-preview.svg'
 
 const Preview = (image) => {
@@ -16,10 +17,9 @@ export default function RecipeCard({recipe}) {
             <img className="w-full h-full object-cover" src={Preview(recipe.data.preview.url)} alt={recipe.data.preview.alt}/>
          </figure>
          <div className="mt-3">
-            <h2 className="font-serif font-bold text-base leading-none text-primary"><PrismicText field={recipe.data.title.richText} /></h2>
+            <h2 className="font-serif font-bold text-base leading-normal text-primary"><PrismicText field={recipe.data.title.richText} /></h2>
             <div className="mt-2">
-               <span className="text-gray-500 text-sm pr-3 leading-none"><i className="ri-user-line text-primary"></i> 2</span>
-               <span className="text-gray-500 text-sm leading-none"><i className="ri-alarm-line text-primary"></i> 30 min</span>
+               <CookingInfo time={recipe.data.time} servings={recipe.data.total_servings}/>
             </div>
          </div>
       </Link>

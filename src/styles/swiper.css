@@ -5,25 +5,20 @@
  /* Swiper Buttons */
  .swiper-button-prev,
  .swiper-button-next {
-   @apply absolute hidden md:block z-10 top-1/2 -translate-y-1/2 w-20 h-20 p-2 bg-neutral-50 dark:bg-black rounded-full transition-all duration-300;
+   @apply absolute cursor-pointer hidden lg:flex items-center justify-center z-10 top-1/2 -translate-y-1/2 w-10 h-10 p-2 bg-primary text-white border border-white rounded-full transition-all duration-300;
  }
  
  .swiper-button-prev {
-   @apply left-0 rounded-tl-none rounded-bl-none after:content-['\2190'];
+   @apply left-2 after:content-['\2190'];
  }
  
  .swiper-button-next {
-   @apply right-0 rounded-tr-none rounded-br-none after:content-['\2192'];
+   @apply right-2 after:content-['\2192'];
  }
- 
+
  .swiper-button-prev::after,
  .swiper-button-next::after {
-   @apply flex items-center justify-center relative w-full h-full rounded-full border border-neutral-900 dark:border-neutral-300 text-base text-neutral-900 dark:text-neutral-300;
- }
- 
- .swiper-button-next:hover::after,
- .swiper-button-prev:hover::after {
-    @apply bg-neutral-900 dark:bg-neutral-300 text-neutral-300 dark:text-neutral-900 transition-all duration-300;
+  @apply relative top-[-2px];
  }
  
  .swiper-button-disabled {

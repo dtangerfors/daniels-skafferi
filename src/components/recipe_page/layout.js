@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Section = ({children}) => (
-   <div className="py-8 px-4">
+   <div className="py-8 px-5.5">
       {children}
    </div>
 )

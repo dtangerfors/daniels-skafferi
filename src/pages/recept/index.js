@@ -18,7 +18,7 @@ export const query = graphql`
           id
           data {
             title {
-              raw
+              richText
             }
             preview {
               url
@@ -34,10 +34,10 @@ export const query = graphql`
           url
           data {
             title {
-              raw
+              richText
             }
             preamble {
-              raw
+              richText
             }
             preview {
               url
