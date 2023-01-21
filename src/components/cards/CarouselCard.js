@@ -1,5 +1,4 @@
 import React from 'react'
-import { PrismicText } from '@prismicio/react'
 import { Link } from 'gatsby'
 import missing_image from '../../images/missing-preview.svg'
 import CookingInfo from '../CookingInfo'

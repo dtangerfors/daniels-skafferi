@@ -5,7 +5,7 @@ import Hamburger from "./Hamburger"
 import MegaMenu from "./MegaMenu"
 import Nav from "./Nav"
 
-export const Header = () => {
+const Header = () => {
   const [open, setOpen] = useState(false)
   return (
     <header className="sticky z-50 top-0 w-full h-12 bg-white border-neutral-200 border-b px-6 md:h-16">
@@ -24,3 +24,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export {Header}

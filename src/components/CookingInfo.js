@@ -11,8 +11,6 @@ const convertTime = (time) => {
 
 const CookingInfo = ({ time, servings }) => {
 
-   let cookingTime = time;
-
   return (
     <div>
       <span className="text-gray-500 text-xs pr-3 leading-none" title={`Det här recepetet är för ${servings} personer`}>
