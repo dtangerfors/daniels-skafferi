@@ -60,7 +60,7 @@ const Homepage = ({ data }) => {
       <Seo title="Hem" />
       <div>
         <section>
-          <header className="flex items-end bg-secondary px-5.5 h-40">
+          <header className="flex items-end bg-secondary px-5.5 pt-16 lg:h-40">
             <Content>
               <h2 className="font-serif font-light text-lg leading-none text-primary">
                 Senast tillagda recept

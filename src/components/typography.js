@@ -7,19 +7,19 @@ const H1 = ({ children }) => (
 )
 
 const H2 = ({ children }) => (
-  <h2 className="font-serif font-light text-xl lg:text-3xl text-primary">
+  <h2 className="font-serif font-light text-xl lg:text-3xl text-primary pb-6 pt-8 first:pt-0">
     {children}
   </h2>
 )
 
 const H3 = ({ children }) => (
-  <h3 className="font-serif font-light text-lg lg:text-2xl text-primary">
+  <h3 className="font-serif font-light text-lg lg:text-2xl text-primary pb-3 pt-6 first:pt-0">
     {children}
   </h3>
 )
 
 const H4 = ({ children }) => (
-  <h4 className="font-serif font-light text-base lg:text-xl text-primary">
+  <h4 className="font-serif font-light text-base lg:text-xl text-primary pb-2 pt-4 first:pt-0">
     {children}
   </h4>
 )
