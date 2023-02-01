@@ -30,9 +30,10 @@ const config: GatsbyConfig = {
           recipe: require('./custom_types/recipe.json'),
           category: require('./custom_types/category.json'),
           course: require('./custom_types/course.json'),
+          blog_post: require('./custom_types/blog_post.json'),
         },
       },
-    },
+    }
   ],
 }
 
