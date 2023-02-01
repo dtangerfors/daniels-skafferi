@@ -28,7 +28,7 @@ const MegaMenu = ({ open }) => {
           url
           data {
             title {
-              raw
+              richText
             }
           }
           id
@@ -42,7 +42,7 @@ const MegaMenu = ({ open }) => {
           id
           data {
             title {
-              raw
+              richText
             }
           }
         }
@@ -78,7 +78,7 @@ const MegaMenu = ({ open }) => {
               Kategori
             </p>
             <ul>
-              {allCategoryLinks.map((CategoryLink, i) => (<MenuLink key={CategoryLink.node.id} to={CategoryLink.node.url}><PrismicText field={CategoryLink.node.data.title.raw} /></MenuLink>))}
+              {allCategoryLinks.map((CategoryLink, i) => (<MenuLink key={CategoryLink.node.id} to={CategoryLink.node.url}><PrismicText field={CategoryLink.node.data.title.richText} /></MenuLink>))}
             </ul>
           </li>
         <li className="w-full" key="menu-item-course">
@@ -86,7 +86,7 @@ const MegaMenu = ({ open }) => {
               Typ av rätt
             </p>
             <ul>
-              {allCourseLinks.map((CourseLink, i) => (<MenuLink key={CourseLink.node.id} to={CourseLink.node.url}><PrismicText field={CourseLink.node.data.title.raw} /></MenuLink>))}
+              {allCourseLinks.map((CourseLink, i) => (<MenuLink key={CourseLink.node.id} to={CourseLink.node.url}><PrismicText field={CourseLink.node.data.title.richText} /></MenuLink>))}
             </ul>
           </li>
           <li className="w-full" key="menu-item-info">
