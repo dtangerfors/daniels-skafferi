@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-export const Seo = ({ description, title }) => {
+export const Seo = ({ description, title, metaImage }) => {
   const queryData = useStaticQuery(graphql`
     {
       site {
@@ -22,6 +22,9 @@ export const Seo = ({ description, title }) => {
     <Helmet>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={metaImage} />
     </Helmet>
   )
 }

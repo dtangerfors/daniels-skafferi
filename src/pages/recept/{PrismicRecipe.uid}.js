@@ -91,6 +91,7 @@ export const query = graphql`
         }
         description {
           richText
+          text
         }
         course_group {
           course {
@@ -142,7 +143,7 @@ const RecipePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={title.text} />
+      <Seo title={title.text} description={description.text} metaImage={preview.url} />
 
       <div className="relative">
         <header

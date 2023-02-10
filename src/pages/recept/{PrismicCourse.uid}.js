@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicText } from '@prismicio/react'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Layout } from '../../components/Layout'
 import RecipeCard from '../../components/cards/RecipeCard'
 import { Content } from '../../components/sections'
 import bgBorder from "../../images/white-border-deco.svg";
+import { Seo } from '../../components/Seo'
 
 export const query = graphql`
   query CoursePage($id: String, $uid: String) {
@@ -16,11 +18,12 @@ export const query = graphql`
         }
         preamble {
           richText
+          text
         }
         preview {
           url
           alt
-          gatsbyImageData(width: 500, imgixParams: {q: 80}, placeholder: BLURRED)
+          gatsbyImageData(width: 1920, imgixParams: {q: 80}, placeholder: BLURRED)
         }
       }
       uid
@@ -64,9 +67,11 @@ const CoursePage = ({ data }) => {
   if (!data) return null
   const course = data.prismicCourse
   const recipes = data.allPrismicRecipe.edges
+  const headerImage = getImage(course.data.preview);
 
   return (
     <Layout>
+      <Seo title={course.data.title.text} description={course.data.preamble.text} metaImage={course.data.preview.url}/>
       <header className="relative z-1">
         <div className="flex flex-col items-center justify-center bg-black bg-opacity-50 py-32 px-5.5" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
           <h1 className="font-serif font-light text-2xl lg:text-4xl text-white mb-5">
@@ -77,8 +82,7 @@ const CoursePage = ({ data }) => {
           </p>
         </div>
         <figure className="absolute inset-0 -z-1 w-full h-full">
-          <img
-            src={course.data.preview.url}
+        <GatsbyImage image={headerImage} 
             alt={course.data.preview.alt}
             className="w-full h-full object-cover"
           />
