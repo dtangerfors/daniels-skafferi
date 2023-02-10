@@ -7,7 +7,7 @@ function NavPill({ to, children, linkName}) {
     <li>
       <Link
         to={to}
-        className="mr-8 flex items-center text-sm leading-[4rem] text-neutral-400 text-center hover:text-primary transition-all ease-in-out duration-200"
+        className="mr-8 flex items-center text-sm leading-[4rem] text-neutral-600 text-center hover:text-primary transition-all ease-in-out duration-200"
         activeClassName="text-primary"
         partiallyActive={true}
       >

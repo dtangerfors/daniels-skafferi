@@ -12,7 +12,7 @@ import CookieBanner from './CookieBanner'
 
 export const Layout = ({ children }) => (
   <>
-    <Helmet>
+    <Helmet htmlAttributes={{lang: "sv-SE"}}>
     <link href="https://api.fontshare.com/css?f[]=plus-jakarta-sans@401,400,600,700,701&f[]=gambarino@400&display=swap" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="180x180" href={appleIcon}/>
     <link rel="icon" href={favicon}/>

@@ -12,7 +12,7 @@ export default function CarouselCard({recipe}) {
    return (
       <Link to={recipe.url} className="inline-flex items-center w-full h-28 lg:h-52 bg-white rounded-2xl shadow-lg overflow-hidden snap-start snap-m-5.5 whitespace-normal">
          <figure className="relative w-28 h-28 lg:w-52 lg:h-52 overflow-hidden">
-         <GatsbyImage image={image} className="w-full h-full object-cover" alt={recipe.data.preview.alt || recipe.data.title.text}/>
+         <GatsbyImage image={image} className="w-full h-full object-cover overflow-hidden" imgClassName="rounded-l-2xl" alt={recipe.data.preview.alt || recipe.data.title.text}/>
          </figure>
          <div className="flex-1 px-2 lg:px-6">
             <p className="text-sm lg:text-lg text-primary font-sans lg:leading-relaxed lg:pb-4" title={recipe.data.title.text}>{Truncate(recipe.data.title.text, 40)}</p>
