@@ -21,6 +21,7 @@ query IndexPage {
           preview {
             alt
             url
+            gatsbyImageData(width: 500, imgixParams: {q: 80}, placeholder: BLURRED)
           }
           total_servings
           time
@@ -35,12 +36,15 @@ query IndexPage {
         data {
           title {
             richText
+            text
           }
           preamble {
             richText
           }
           preview {
             url
+            alt
+            gatsbyImageData(width: 500, imgixParams: {q: 80}, placeholder: BLURRED)
           }
         }
         id

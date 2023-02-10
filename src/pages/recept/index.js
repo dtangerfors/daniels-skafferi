@@ -9,44 +9,49 @@ import { Seo } from '../../components/Seo'
 import { H1 } from '../../components/typography'
 
 export const query = graphql`
-  query RecipePage {
-    allPrismicCourse {
-      edges {
-        node {
-          url
-          uid
-          id
-          data {
-            title {
-              richText
-            }
-            preview {
-              url
-              alt
-            }
+query RecipePage {
+  allPrismicCourse {
+    edges {
+      node {
+        url
+        uid
+        id
+        data {
+          title {
+            richText
+            text
           }
-        }
-      }
-    }
-    allPrismicCategory {
-      edges {
-        node {
-          url
-          data {
-            title {
-              richText
-            }
-            preamble {
-              richText
-            }
-            preview {
-              url
-            }
+          preview {
+            url
+            alt
+            gatsbyImageData(width: 500, imgixParams: {q: 20}, placeholder: BLURRED)
           }
         }
       }
     }
   }
+  allPrismicCategory {
+    edges {
+      node {
+        url
+        data {
+          title {
+            richText
+            text
+          }
+          preamble {
+            richText
+          }
+          preview {
+            url
+            alt
+            gatsbyImageData(width: 500, imgixParams: {q: 20}, placeholder: BLURRED)
+          }
+        }
+      }
+    }
+  }
+}
 `
 
 export default function RecipePage({ data }) {

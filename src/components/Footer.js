@@ -42,7 +42,7 @@ export const Footer = () => (
           <div className="lg:col-span-3">
             <p className="text-xs text-black font-semibold uppercase tracking-widest pb-4">Sociala medier</p>
             <ul className="flex flex-col">
-              <a href="https://www.instagram.com/danielsskafferi/" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-700 leading-loose"><span className="inline-block align-sub"><Instagram width="1.2em" height="1.2em"/></span> Instagram</a>
+              <li><a href="https://www.instagram.com/danielsskafferi/" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-700 leading-loose"><span className="inline-block align-sub"><Instagram width="1.2em" height="1.2em"/></span> Instagram</a></li>
             </ul>
           </div>
           <div className="lg:col-span-3">
@@ -60,8 +60,8 @@ export const Footer = () => (
       
     </div>
     <div className="flex justify-end pt-1 pb-3 px-5.5 bg-tertiary">
-        <div className="max-w-screen-lg w-full mx-auto text-right">
-          <p className="font-sans text-white text-xs">Copyright &copy; {year}</p>
+        <div className="max-w-screen-lg w-full mx-auto">
+          <p className="font-sans text-black text-xs">Copyright &copy; {year}</p>
         </div>
       </div>
   </footer>
