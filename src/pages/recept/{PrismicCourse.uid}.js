@@ -12,6 +12,7 @@ export const query = graphql`
       data {
         title {
           richText
+          text
         }
         preamble {
           richText
@@ -19,6 +20,7 @@ export const query = graphql`
         preview {
           url
           alt
+          gatsbyImageData(width: 500, imgixParams: {q: 80}, placeholder: BLURRED)
         }
       }
       uid
@@ -36,6 +38,7 @@ export const query = graphql`
           data {
             title {
               richText
+              text
             }
             course_group {
               course {
@@ -45,6 +48,7 @@ export const query = graphql`
             preview {
               alt
               url
+              gatsbyImageData(width: 500, imgixParams: {q: 80}, placeholder: BLURRED)
             }
             total_servings
             time

@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { PrismicText } from "@prismicio/react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   HowTo,
   Item,
@@ -35,6 +36,7 @@ export const query = graphql`
           alt
           copyright
           url
+          gatsbyImageData(width: 1500, imgixParams: {q: 50}, placeholder: BLURRED)
         }
         total_servings
         time
@@ -81,6 +83,7 @@ export const query = graphql`
               image {
                 alt
                 url
+                gatsbyImageData(width: 1200, imgixParams: {q: 20}, placeholder: BLURRED)
               }
             }
             slice_type
@@ -135,6 +138,8 @@ const RecipePage = ({ data }) => {
     (slice) => slice.slice_type === "how_to"
   );
 
+  const image = getImage(preview);
+
   return (
     <Layout>
       <Seo title={title.text} />
@@ -155,9 +160,8 @@ const RecipePage = ({ data }) => {
                 />
             </div>
             <div className="w-full lg:w-1/2">
-            <img
+            <GatsbyImage image={image}
       className="object-cover object-center w-full h-full max-h-[50vh]"
-      src={preview.url}
       alt={preview.alt}
     />
             </div>

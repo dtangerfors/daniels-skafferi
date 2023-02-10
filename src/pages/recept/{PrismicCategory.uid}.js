@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicText } from '@prismicio/react'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/Layout'
 import RecipeCard from '../../components/cards/RecipeCard'
@@ -22,6 +23,7 @@ export const query = graphql`
         preview {
           alt
           url
+          gatsbyImageData(width: 1920, imgixParams: {q: 80}, placeholder: BLURRED)
         }
       }
       uid
@@ -39,6 +41,7 @@ export const query = graphql`
           data {
             title {
               richText
+              text
             }
             category_group {
               category {
@@ -48,6 +51,7 @@ export const query = graphql`
             preview {
               alt
               url
+              gatsbyImageData(width: 500, imgixParams: {q: 20}, placeholder: BLURRED)
             }
             total_servings
             time
@@ -63,6 +67,7 @@ const CategoryPage = ({ data }) => {
   if (!data) return null
   const category = data.prismicCategory
   const recipes = data.allPrismicRecipe.edges
+  const headerImage = getImage(category.data.preview);
 
   return (
     <Layout>
@@ -77,10 +82,7 @@ const CategoryPage = ({ data }) => {
           </p>
         </div>
         <figure className="absolute inset-0 -z-1 w-full h-full">
-          <img
-            src={category.data.preview.url}
-            alt={category.data.preview.alt}
-            className="w-full h-full object-cover"
+        <GatsbyImage image={headerImage} alt={category.data.preview.alt} className="w-full h-full object-cover"
           />
         </figure>
       </header>
