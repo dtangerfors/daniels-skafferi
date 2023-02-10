@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicText } from '@prismicio/react'
+import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/Layout'
 import RecipeCard from '../../components/cards/RecipeCard'
 import { Content } from '../../components/sections'
@@ -12,9 +13,11 @@ export const query = graphql`
       data {
         title {
           richText
+          text
         }
         preamble {
           richText
+          text
         }
         preview {
           alt
@@ -63,6 +66,7 @@ const CategoryPage = ({ data }) => {
 
   return (
     <Layout>
+      <Seo title={category.data.title.text} description={category.data.preamble.text} />
       <header className="relative z-1">
         <div className="flex flex-col items-center justify-center bg-black bg-opacity-50 py-32 px-5.5" style={{backgroundImage: `url(${bgBorder})`, backgroundSize: `30px 15px`, backgroundPosition: `center bottom`, backgroundRepeat: `repeat-x`}}>
           <h1 className="font-serif font-light text-2xl lg:text-4xl text-white mb-5">

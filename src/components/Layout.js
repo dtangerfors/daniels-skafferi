@@ -8,6 +8,7 @@ import appleIcon from '../images/apple-touch-icon.png'
 import favicon from '../images/favicon.ico'
 import maskIcon from '../images/safari-pinned-tab.svg'
 import { IconoirProvider } from 'iconoir-react'
+import CookieBanner from './CookieBanner'
 
 export const Layout = ({ children }) => (
   <>
@@ -35,5 +36,6 @@ export const Layout = ({ children }) => (
       </IconoirProvider>
     </div>
     <Footer />
+    <CookieBanner />
   </>
 )
