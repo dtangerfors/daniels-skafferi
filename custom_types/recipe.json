@@ -37,6 +37,17 @@
         "label": "Preview"
       }
     },
+    "meta_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1200,
+          "height": 630
+        },
+        "thumbnails": [],
+        "label": "Meta image"
+      }
+    },
     "category_group": {
       "type": "Group",
       "config": {

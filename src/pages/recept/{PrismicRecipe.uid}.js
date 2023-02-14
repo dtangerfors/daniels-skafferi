@@ -24,88 +24,91 @@ const DashedLine = () => (
 );
 
 export const query = graphql`
-  query SingleRecipe($id: String) {
-    prismicRecipe(id: { eq: $id }) {
-      first_publication_date
-      data {
-        title {
-          richText
-          text
-        }
-        preview {
-          alt
-          copyright
-          url
-          gatsbyImageData(width: 1500, imgixParams: {q: 50}, placeholder: BLURRED)
-        }
-        total_servings
-        time
-        body {
-          ... on PrismicRecipeDataBodyIngredients {
-            id
-            slice_type
-            primary {
-              recipe_group {
-                richText
-              }
-            }
-            items {
-              item {
-                richText
-              }
-              measurement {
-                richText
-              }
-              quantity {
-                richText
-              }
+query SingleRecipe($id: String) {
+  prismicRecipe(id: {eq: $id}) {
+    first_publication_date
+    data {
+      title {
+        richText
+        text
+      }
+      preview {
+        alt
+        copyright
+        url
+        gatsbyImageData(width: 1500, imgixParams: {q: 50}, placeholder: BLURRED)
+      }
+      total_servings
+      time
+      body {
+        ... on PrismicRecipeDataBodyIngredients {
+          id
+          slice_type
+          primary {
+            recipe_group {
+              richText
             }
           }
-          ... on PrismicRecipeDataBodyHowTo {
-            id
-            slice_type
-            primary {
-              recipe_group {
-                richText
-              }
+          items {
+            item {
+              richText
             }
-            items {
-              step {
-                richText
-              }
+            measurement {
+              richText
+            }
+            quantity {
+              richText
             }
           }
-          ... on PrismicRecipeDataBodyBlogPost {
-            items {
-              text {
-                richText
-              }
-              image {
-                alt
-                url
-                gatsbyImageData(width: 1200, imgixParams: {q: 20}, placeholder: BLURRED)
-              }
+        }
+        ... on PrismicRecipeDataBodyHowTo {
+          id
+          slice_type
+          primary {
+            recipe_group {
+              richText
             }
-            slice_type
+          }
+          items {
+            step {
+              richText
+            }
           }
         }
-        description {
-          richText
-          text
-        }
-        course_group {
-          course {
-            uid
+        ... on PrismicRecipeDataBodyBlogPost {
+          items {
+            text {
+              richText
+            }
+            image {
+              alt
+              url
+              gatsbyImageData(width: 1200, imgixParams: {q: 20}, placeholder: BLURRED)
+            }
           }
+          slice_type
         }
-        category_group {
-          category {
-            uid
-          }
+      }
+      description {
+        richText
+        text
+      }
+      course_group {
+        course {
+          uid
         }
+      }
+      category_group {
+        category {
+          uid
+        }
+      }
+      meta_image {
+        url
       }
     }
   }
+}
 `;
 
 // Sort and display the different slice options
@@ -128,7 +131,7 @@ const SliceItems = ({ slices }) => {
 const RecipePage = ({ data }) => {
   if (!data) return null;
   const recipe = data.prismicRecipe;
-  const { title, preview, description, category_group, course_group, body } =
+  const { title, preview, description, category_group, course_group, body, meta_image } =
     recipe.data;
   const { first_publication_date } = recipe;
 
@@ -143,7 +146,7 @@ const RecipePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={title.text} description={description.text} metaImage={preview.url} />
+      <Seo title={title.text} description={description.text} metaImage={meta_image.url} />
 
       <div className="relative">
         <header

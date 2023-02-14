@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
-import 'remixicon/fonts/remixicon.css'
 import {Header} from './Header'
 import {Footer} from './Footer'
 

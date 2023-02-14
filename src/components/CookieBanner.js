@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import { initializeAndTrack } from "gatsby-plugin-gdpr-cookies";
 import { Link } from "gatsby";
 
-const CookieBanner = ({}) => {
+const CookieBanner = () => {
   const location = useLocation();
 
   return (

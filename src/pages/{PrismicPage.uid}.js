@@ -76,13 +76,13 @@ const SliceItems = ({ slices }) => {
 
 const Page = ({ data }) => {
   if (!data) return null
-  const page = data.prismicPage
+  const page = data.prismicPage;
 
   const {page_title, body, meta_image, meta_description} = page.data;
 
   return (
     <Layout>
-      <Seo title={page_title.text} description={meta_description.text} />
+      <Seo title={page_title.text} description={meta_description.text} metaImage={meta_image.url} />
       <Hero hasBorder>
         <div className="flex items-center justify-center w-full h-full">
           <H1><PrismicText field={page_title.richText}/></H1>

@@ -32,7 +32,6 @@
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
-    "remixicon": "^2.5.0",
     "swiper": "^8.4.2"
   },
   "devDependencies": {
