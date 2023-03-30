@@ -7,7 +7,7 @@ const H1 = ({ children }) => (
 )
 
 const H2 = ({ children }) => (
-  <h2 className="font-serif font-light text-xl lg:text-3xl text-primary pb-6 pt-8 first:pt-0">
+  <h2 className="font-serif font-light text-xl lg:text-2xl text-primary pb-6 pt-8 first:pt-0">
     {children}
   </h2>
 )

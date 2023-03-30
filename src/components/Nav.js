@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'gatsby'
-import { BookStack, GlassEmpty, UserCircle } from 'iconoir-react'
+import { BookStack, OpenBook, UserCircle } from 'iconoir-react'
 
 function NavPill({ to, children, linkName}) {
   return (
@@ -23,8 +23,8 @@ const Nav = () => (
             <NavPill to="/recept" linkName="Recept">
               <BookStack />
             </NavPill>
-            <NavPill to="/recept/drinkar" linkName="Drinkar">
-              <GlassEmpty />
+            <NavPill to="/blogg" linkName="Blogg">
+              <OpenBook />
             </NavPill>
             <NavPill to="/om" linkName="Om">
               <UserCircle />
