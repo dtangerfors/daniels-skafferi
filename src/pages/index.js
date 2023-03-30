@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout'
 import { Seo } from '../components/Seo'
 import Categories from '../components/homepage/Categories'
 import { Content } from '../components/sections'
+import BlogCard from '../components/cards/BlogCard'
 
 export const query = graphql`
 query IndexPage {
@@ -29,7 +30,7 @@ query IndexPage {
       }
     }
   }
-  allPrismicCategory {
+  allPrismicCategory(limit: 3) {
     edges {
       node {
         url
@@ -51,6 +52,34 @@ query IndexPage {
       }
     }
   }
+  allPrismicBlogPost(sort: {order: DESC, fields: last_publication_date}, limit: 2) {
+    edges {
+      node {
+        url
+        first_publication_date
+        uid
+        data {
+          page_title {
+            richText
+          }
+          featured_image {
+            gatsbyImageData(width: 800, placeholder: BLURRED, imgixParams: {q: 20})
+            alt
+          }
+          body {
+            ... on PrismicBlogPostDataBodyText {
+              id
+              items {
+                text {
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 `
 
@@ -58,6 +87,7 @@ const Homepage = ({ data }) => {
   if (!data) return null
   const recipes = data.allPrismicRecipe.edges
   const categories = data.allPrismicCategory.edges
+  const posts = data.allPrismicBlogPost.edges;
 
   return (
     <Layout>
@@ -77,6 +107,7 @@ const Homepage = ({ data }) => {
             </Content>
           </div>
         </section>
+        
         <section className="p-5.5">
           <header className="mt-10 mb-5">
             <Content>
@@ -88,6 +119,20 @@ const Homepage = ({ data }) => {
           <Content>
             <Categories categories={categories} />
           </Content>
+        </section>
+        <section className="p-5.5">
+        <header className="mt-10 mb-5">
+            <Content>
+              <h2 className="font-serif font-light text-lg leading-none text-primary">
+               Nya blogginlägg
+              </h2>
+            </Content>
+          </header>
+        <Content>
+            {posts.map((post) => (
+               <BlogCard item={post.node} key={post.node.uid} />
+            ))}
+            </Content>
         </section>
       </div>
     </Layout>

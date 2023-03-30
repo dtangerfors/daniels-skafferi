@@ -18,6 +18,11 @@ exports.linkResolver = (doc) => {
    if (doc.type === 'page') {
      return `/${doc.uid}`
    }
+   
+   // URL for a blog post type
+   if (doc.type === 'blog_post') {
+     return `/blogg/${doc.uid}`
+   }
  
    // Backup for all other types
    return '/'
