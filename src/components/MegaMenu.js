@@ -96,9 +96,6 @@ const MegaMenu = ({ open }) => {
             <ul>
               <MenuLink to="/om" key="menu-item-2-1">Om</MenuLink>
               <MenuLink to="/cookies" key="menu-item-2-2">Cookies</MenuLink>
-              <MenuLink to="/webbplatsinformation" key="menu-item-2-3">
-                Webbplatsinformation
-              </MenuLink>
             </ul>
           </li>
         </ul>

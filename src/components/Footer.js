@@ -50,9 +50,6 @@ export const Footer = () => (
             <ul className="flex flex-col">
               <FooterLink to="/om">Om</FooterLink>
               <FooterLink to="/cookies">Cookies</FooterLink>
-              <FooterLink to="/webbplatsinformation">
-                Webbplatsinformation
-              </FooterLink>
             </ul>
           </div>
         </div>
