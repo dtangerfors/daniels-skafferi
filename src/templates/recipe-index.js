@@ -63,7 +63,7 @@ export default function RecipePage({ data }) {
         <Hero hasBorder>
           <div className="flex items-center justify-center flex-wrap w-full h-full">
             <H1>Recept</H1>
-            <div className="flex justify-center flex-wrap mt-10 w-full gap-4">
+            <div className="flex justify-center flex-wrap mt-12 mb-6 w-full gap-4">
                <Link to="/recept/maltider" className="text-sm py-2 pb-3 px-6 bg-tertiary text-white leading-none rounded-2xl shadow-lg hover:shadow-md transition-all">Måltider</Link>
                <Link to="/recept/kategorier" className="text-sm py-2 pb-3 px-6 bg-tertiary text-white leading-none rounded-2xl shadow-lg hover:shadow-md transition-all">Typ av rätt</Link>
             </div>
