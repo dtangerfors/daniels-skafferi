@@ -1,0 +1,25 @@
+.pagination {
+   @apply flex justify-center items-center mt-12;
+}
+
+.pagination__item {
+   @apply flex items-center justify-center w-8 h-8 mx-1 rounded-full pb-1 font-semibold leading-none text-neutral-500 transition-all;
+} 
+
+.pagination__item:hover {
+   @apply bg-secondary text-neutral-500  transition-all;
+}
+
+.pagination__item--arrow {
+   @apply pb-0;
+}
+
+.current-page {
+   @apply bg-primary text-white;
+} 
+
+.disabled {
+   pointer-events: none;
+   cursor: not-allowed;
+   opacity: .7;
+}
