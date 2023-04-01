@@ -1,7 +1,7 @@
 exports.linkResolver = (doc) => {
    // URL for a category type
    if (doc.type === 'category') {
-     return `/recept/${doc.uid}`
+     return `/recept/kategorier/${doc.uid}`
    }
  
    // URL for a recipe type
@@ -11,7 +11,7 @@ exports.linkResolver = (doc) => {
 
    // URL for a course type
    if (doc.type === 'course') {
-     return `/recept/${doc.uid}`
+     return `/recept/maltider/${doc.uid}`
    }
  
    // URL for a page type

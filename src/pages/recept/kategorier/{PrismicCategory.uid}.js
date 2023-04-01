@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicText } from '@prismicio/react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Seo } from '../../components/Seo'
-import { Layout } from '../../components/Layout'
-import RecipeCard from '../../components/cards/RecipeCard'
-import { Content } from '../../components/sections'
-import bgBorder from "../../images/white-border-deco.svg";
+import { Seo } from '../../../components/Seo'
+import { Layout } from '../../../components/Layout'
+import RecipeCard from '../../../components/cards/RecipeCard'
+import { Content } from '../../../components/sections'
+import bgBorder from "../../../images/white-border-deco.svg";
 
 export const query = graphql`
   query CategoryPage($id: String, $uid: String) {
